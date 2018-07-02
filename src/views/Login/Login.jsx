@@ -55,8 +55,35 @@ class Login extends React.Component {
   componentDidMount() {
     console.log('mounting')
     const blockchain = new Blockchain()
-    /* blockchain.createDataholder("Thomas", "test", "private") */
-    console.log(blockchain.getKeyFromDataholder('Thomas'))
+    const key = `-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEAo2THzYQI3yCgyfz3DVcORoW2uToS9xLTcmLk8X6tiQdqzr/X
+CU2QXjvqSzi9qeWB5Eyx8MtviM2Y+1SPpFIbN5qtIjFzwgov2CbA4rcQk9756bdu
+R8GmJR1tkVOrt+fLT/DJelpSYNjoT9YKWID9gGQ28jtEKrdwBg/IeYEVg3ib+Q3m
+Blr1rDui4nrlnHhYDVa59sMKJKB5dACzVAMPfa23Vy/7fF30i3vQtR4MSis6/MiB
+DFAmhvCYSauA99ripVXzIrzBjGpHCCo/toV1+vEANHQv9BuJOLEi32oUpJHkmaQd
+lQhk9tLZm2MU5pwSpaF3z/pz3tpsMnBUoncizQIDAQABAoIBADuIsgBg9naOReez
+AzVaHfp2KADPdy+NLXwFKpQPax19lV4lqi1alJqxTAoCb6Di3fQYOdGZ3lbDStVw
+lzHxNLeK5UCLMjlmSs6AOFGjEChA22BcFJOSrH3jfhOwn+XPUFYdTtwE4vUks2i7
+fWOIBFXurdKO46SI2AltYMdc0EDpcSe1pGP1to88MTv65z2x1zCAhWWWAInaMOho
+JxZe8joJEJ/Zc56NBjCfCQKUZAEHl3mBWBpneJr0XoFP+5NmgjapEFgVKuDAkwgO
+wMP73RBfA1u0c6NcCKATAtttjxQuOa6OPuIUKmzw9u1JFWwBwuULkjaMmhJ4Z6v7
+cubLrIECgYEAyt276dd8svRQelDGFLnXIpWtV6T0phcBU+VQaLdyZ6EhqSoVHXRG
+30a1ShAh7+ME4PBv4gXbOJkOvj93dWcHDR1YhaMDttQtqgkglRO0JkXm6afx7wMM
+s38ViJWlY0HkECjDpy6S/VdHP218M9FK+XPqRW+Hud8iPXx23Dnry6ECgYEAzjBm
+PEaaTqE0PI+7cyBOHSNxW9JX5LbO5jwCg5josBWhvH73sAdrKGB0N1uxlcHGv+0Y
+5AbFsD+VyIaO8oSdnORQVLuEeobibBTgz9F6aKFdtmtRytggBTS3vA2/0f1t51gJ
+pZQg2xWOBsyGhkneJuW44I4RGNgk6RNcgnN5J60CgYEAggu6lqEI0z9DB+YX1Nl9
+TDJfOLwKCR7ePwXVkgtnT38/sM3FU2hitmcBeET3PGxviDMZxe6zJYkYpmTRE3XE
+U2fog2KI0v8ZdtL7DBXheld9O3Pp56owzjA9gZ1MtGBc7u7y3Y1BtR3qEoMBB8a3
+JUpld7WTcFfV/0x2dZ67xYECgYEAptJB5UK6ViPXP6iK4PqiOLEUZlYpBsNhYqXq
+4s40dUMLOJcBj0pxSJnBbYiihafiRiZunQ9dotvPNA6qWU0yuF2BIQ0WgovfZdL+
+kSXLBByK1ay+4H88aPneLihxqlSBN0vjgjP24UrvPlD8Bmp9crsqeYR4EMHQG0Ou
+9Vy4CYECgYBRZrAWrt+p0nQ9mdNaWJC+e0ycp+2q90gWeLFkH3l1ha68FeJ3Ta9v
+ENPe9/pAzbin/e1wQui9KnOmSUQjaqrtcgGoQL2YJCPtQ6LF2gAFicBHPsDyLe6d
+p7mdTGPlnRzZCV0BgPq7epG+3cG9shqcO0zCW8iXCARrgnz8y5Br4g==
+-----END RSA PRIVATE KEY-----`
+                console.log(blockchain.createDataholder("Thomas", "test", key))
+                /* console.log(blockchain.getKeyFromDataholder('Thomas')) */
     
 
     /* const web3 = new Web3(new Web3.providers.HttpProvider("http://54.246.178.196:8545"));
