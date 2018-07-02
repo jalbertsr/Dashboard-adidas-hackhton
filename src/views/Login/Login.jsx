@@ -22,7 +22,7 @@ import FormControl from "@material-ui/core/FormControl";
 import TextField from "@material-ui/core/TextField";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 
-import Web3 from 'web3';
+import Blockchain from '../../utils/blockchain.js'
 
 const styles = {
   cardCategoryWhite: {
@@ -54,9 +54,14 @@ class Login extends React.Component {
   }
   componentDidMount() {
     console.log('mounting')
-    const web3 = new Web3(new Web3.providers.HttpProvider("http://54.246.178.196:8545"));
-    var coinbase = web3.eth.coinbase;
-    console.log(coinbase)
+    const blockchain = new Blockchain()
+    /* blockchain.createDataholder("Thomas", "test", "private") */
+    console.log(blockchain.getKeyFromDataholder('Thomas'))
+    
+
+    /* const web3 = new Web3(new Web3.providers.HttpProvider("http://54.246.178.196:8545"));
+     * var coinbase = web3.eth.coinbase; */
+    /* console.log(coinbase) */
   }
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
