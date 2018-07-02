@@ -68,10 +68,9 @@ class Login extends React.Component {
         .post("https://adiflask.herokuapp.com/create_user", {
           email: this.state.email,
           password: this.state.password,
-          public_key: "1231231313_public_key"
         })
         .then(response => {
-          console.log(response);
+          console.log(response.data.private_key);
         });
     }
   }

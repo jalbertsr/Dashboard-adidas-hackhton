@@ -44,7 +44,7 @@ class QueryData extends React.Component {
       gender: "female",
       city: "Herzo",
       age: "30-40",
-      data: {}
+      matches: null
     };
   }
   
@@ -55,9 +55,12 @@ class QueryData extends React.Component {
   componentDidUpdate () {
     const { age, city, gender } = this.state;
     const [ _from, to] = age.split("-")
-    axios.get(`https://adiflask.herokuapp.com/users_info/?age_to=${to}&age_from=${_from}&city=${city}&gender=${gender}`)
+    axios
+      .get(
+        `https://adiflask.herokuapp.com/users_info?age_to=${to}&age_from=${_from}&sex=${gender}&city=${city}`
+      )
       .then(res => {
-        console.log(res)
+        this.setState({ matches: res.data["number_of_matching_users"] });
       });
   }
 
