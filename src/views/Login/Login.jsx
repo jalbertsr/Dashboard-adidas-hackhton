@@ -21,6 +21,8 @@ import FormControl from "@material-ui/core/FormControl";
 import TextField from "@material-ui/core/TextField";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 
+import Web3 from 'web3';
+
 const styles = {
   cardCategoryWhite: {
     color: "rgba(255,255,255,.62)",
@@ -48,6 +50,9 @@ class Login extends React.Component {
       password: "",
       isLogin: true
     };
+  }
+  componentDidMount() {
+    web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
   }
   handleChange = e => {
     console.log( e.target.name, e.target.value);
