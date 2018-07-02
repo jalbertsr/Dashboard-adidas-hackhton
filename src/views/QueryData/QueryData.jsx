@@ -1,19 +1,14 @@
 import axios from 'axios';
 import React from "react";
-import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import { withRouter } from "react-router-dom";
-import FormGroup from "@material-ui/core/FormGroup";
-import Checkbox from "@material-ui/core/Checkbox";
+import Typography from "@material-ui/core/Typography";
 
-import Input from "@material-ui/core/Input";
-import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 
@@ -100,6 +95,9 @@ class QueryData extends React.Component {
             <MenuItem value="80-90">80 - 90</MenuItem>
           </Select>
         </FormControl>
+        <Typography variant="title" gutterBottom>
+          Results: {this.state.matches}
+        </Typography>
       </div>;
   }
 }
