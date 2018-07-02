@@ -52,7 +52,7 @@ class Login extends React.Component {
     };
   }
   componentDidMount() {
-    web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+    const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
   }
   handleChange = e => {
     console.log( e.target.name, e.target.value);
