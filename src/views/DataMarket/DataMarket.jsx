@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import Grid from "@material-ui/core/Grid";
@@ -43,31 +44,38 @@ const styles = {
   }
 };
 
-function SimpleCard(props) {
-  const { classes } = props;
-
-  return (
-    <div>
-      <Card className={classes.card}>
-        <CardContent>
-          <Typography variant="headline" component="h2">
-            Runtastic
-          </Typography>
-          <Typography className={classes.pos} color="textSecondary">
-            Data from our sport social network
-          </Typography>
-          <Typography component="p">
-            well meaning and kindly.<br />
-            {'"a benevolent smile"'}
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Button size="small">Go</Button>
-        </CardActions>
-      </Card>
-    </div>
-  );
+class SimpleCard extends React.Component {
+  constructor (props) {
+    super(props)
+  }
+  render () {
+    const { classes } = this.props;
+    return ( 
+      <div>
+        <Card className={classes.card}>
+          <CardContent>
+            <Typography variant="headline" component="h2">
+              Runtastic
+            </Typography>
+            <Typography className={classes.pos} color="textSecondary">
+              Data from our sport social network
+            </Typography>
+            <Typography component="p">
+              well meaning and kindly.<br />
+              {'"a benevolent smile"'}
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button size="small" onClick={() => this.props.history.push("/queryData")}>
+              Go
+            </Button>
+          </CardActions>
+        </Card>
+      </div>
+    );
+  }
 }
+
 function UnstyledSimpleCard(props) {
   const { classes } = props;
 
@@ -76,7 +84,7 @@ function UnstyledSimpleCard(props) {
     </div>;
 }
 
-const SimpleStayledCard = withStyles(styles)(SimpleCard);
+const SimpleStayledCard = withStyles(styles)(withRouter(SimpleCard));
 const SimpleUnstayledCard = withStyles(styles)(UnstyledSimpleCard);
 
 

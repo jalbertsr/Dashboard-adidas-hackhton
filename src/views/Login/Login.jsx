@@ -1,4 +1,5 @@
 import React from "react";
+import axios from 'axios';
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import Grid from "@material-ui/core/Grid";
@@ -53,16 +54,26 @@ class Login extends React.Component {
   }
   componentDidMount() {
     const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+    console.log(web3);
   }
   handleChange = e => {
-    console.log( e.target.name, e.target.value);
     this.setState({ [e.target.name]: e.target.value });
   };
   handleSumbit = () => {
     if (this.state.isLogin) {
       // axios POST call login
     }
-    // axios POST call register
+    else {
+      axios
+        .post("https://adiflask.herokuapp.com/create_user", {
+          email: this.state.email,
+          password: this.state.password,
+          public_key: "1231231313_public_key"
+        })
+        .then(response => {
+          console.log(response);
+        });
+    }
   }
   render() {
     const { classes } = this.props;
@@ -89,7 +100,7 @@ class Login extends React.Component {
                     </FormControl>
                   </GridItem>
                   <GridItem xs={12} sm={12} md={6}>
-                    <TextField className={classes.margin} id="input-with-icon-textfield" label="Password" name="password" value={this.state.password} onChange={this.handleChange} />
+                    <TextField className={classes.margin} id="input-with-icon-textfield" label="Password" name="password" type="password" value={this.state.password} onChange={this.handleChange} />
                   </GridItem>
                 </Grid>
               </CardBody>
