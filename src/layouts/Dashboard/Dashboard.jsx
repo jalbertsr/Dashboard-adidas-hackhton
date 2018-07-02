@@ -10,6 +10,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 // core components
 import Header from "components/Header/Header.jsx";
 import Sidebar from "components/Sidebar/Sidebar.jsx";
+import QueryData from "../../views/QueryData/QueryData.jsx"
 
 import dashboardRoutes from "routes/dashboard.jsx";
 
@@ -20,6 +21,7 @@ import logo from "assets/img/adidas.jpg";
 
 const switchRoutes = (
   <Switch>
+    <Route path="/queryData" component={QueryData} />
     {dashboardRoutes.map((prop, key) => {
       if (prop.redirect)
         return <Redirect from={prop.path} to={prop.to} key={key} />;

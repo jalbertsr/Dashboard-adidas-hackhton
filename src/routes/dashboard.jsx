@@ -10,7 +10,7 @@ import Lock from "@material-ui/icons/Lock";
 import DashboardPage from "views/Dashboard/Dashboard.jsx";
 import UserProfile from "views/UserProfile/UserProfile.jsx";
 import TableList from "views/TableList/TableList.jsx";
-import Typography from "views/Typography/Typography.jsx";
+import DataMarket from "views/DataMarket/DataMarket.jsx";
 import Maps from "views/Maps/Maps.jsx";
 import NotificationsPage from "views/Notifications/Notifications.jsx";
 import Login from '../views/Login/Login.jsx'
@@ -39,17 +39,17 @@ const dashboardRoutes = [
   },
   {
     path: "/table",
-    sidebarName: "Table List",
-    navbarName: "Table List",
+    sidebarName: "Data Requests",
+    navbarName: "Data Requests",
     icon: ContentPaste,
     component: TableList
   },
   {
-    path: "/typography",
-    sidebarName: "Typography",
-    navbarName: "Typography",
+    path: "/dataMarket",
+    sidebarName: "Data Marketplace",
+    navbarName: "Data Marketplace",
     icon: LibraryBooks,
-    component: Typography
+    component: DataMarket
   },
   {
     path: "/maps",
@@ -65,7 +65,7 @@ const dashboardRoutes = [
     icon: Notifications,
     component: NotificationsPage
   },
-  { redirect: true, path: "/", to: "/dashboard", navbarName: "Redirect" }
+  { redirect: true, path: "/", to: "/login", navbarName: "Redirect" }
 ];
 
 export default dashboardRoutes;
