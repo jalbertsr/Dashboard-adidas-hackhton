@@ -52,7 +52,10 @@ class Login extends React.Component {
     };
   }
   componentDidMount() {
-    web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+    console.log('mounting')
+    const web3 = new Web3(new Web3.providers.HttpProvider("http://54.246.178.196:8545"));
+    var coinbase = web3.eth.coinbase;
+    console.log(coinbase)
   }
   handleChange = e => {
     console.log( e.target.name, e.target.value);
