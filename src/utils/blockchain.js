@@ -23,7 +23,7 @@ export default class Blockchain {
 
     addDataScientistToDataholder(dataScientistId, dataholderId) {
         // gives a data scientist permissions to query keys from a dataholder
-        return this.instance.addDataScientistToDataholder(dataScientistId, dataholderId);
+        return this.instance.addDataScientistToDataholder(dataScientistId, dataholderId)
     }
 
     changeDataholderSharing(dataholderId, password, shares) {
