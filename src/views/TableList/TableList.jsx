@@ -12,6 +12,8 @@ import CardBody from "components/Card/CardBody.jsx";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 
+import Blockchain from '../../utils/blockchain.js'
+
 const styles = {
   cardCategoryWhite: {
     "&,& a,& a:hover,& a:focus": {
@@ -48,15 +50,11 @@ class TableList extends React.Component {
     this.state = {
     };
   }
-  componentDidMount() {
-    const id = localStorage.getItem("userId");
-    axios
-      .get(`https://adiflask.herokuapp.com/approved_data_scientists/${id}`)
-      .then(res => console.log(res));
-    // list of companies that request data
-  }
   handleChange = e => {
-      // make pay 
+      this.blockchain = new Blockchain();
+      const response = this.blockchain.addDataScientistToDataholder("0xa6ba6a2aed90939f931c1f33be2fbb3ad250a833",
+      "0xe4421e0e54003bbfa00a439d8f19654b18c51038");
+      console.log(response);
   };
   render() {
     const { classes } = this.props;

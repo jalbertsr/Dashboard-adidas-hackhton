@@ -83,6 +83,8 @@ p7mdTGPlnRzZCV0BgPq7epG+3cG9shqcO0zCW8iXCARrgnz8y5Br4g==
     /* const web3 = new Web3(new Web3.providers.HttpProvider("http://54.246.178.196:8545"));
      * var coinbase = web3.eth.coinbase; */
     /* console.log(coinbase) */
+    const balance = this.blockchain.getAdidasiumOf("0xe4421e0e54003bbfa00a439d8f19654b18c51038");
+    console.log(balance);
   }
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -101,8 +103,6 @@ p7mdTGPlnRzZCV0BgPq7epG+3cG9shqcO0zCW8iXCARrgnz8y5Br4g==
           const { private_key, user_id } = response.data;
           localStorage.setItem("userId", user_id);
           this.blockchain.createDataholder(this.state.email, this.state.password, private_key);
-          const balance = this.blockchain.getAdidasiumOf("0xa6ba6a2aed90939f931c1f33be2fbb3ad250a833");
-          console.log(balance)
         });
     }
   }
