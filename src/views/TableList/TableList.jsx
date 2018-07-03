@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import Grid from "@material-ui/core/Grid";
@@ -42,16 +43,22 @@ const styles = {
 };
 
 class TableList extends React.Component {
-  constructor (props){
-    super(props)
+  constructor(props) {
+    super(props);
     this.state = {
-      jason: true
-    }
+    };
   }
-  componentDidMount () {
+  componentDidMount() {
+    const id = localStorage.getItem("userId");
+    axios
+      .get(`https://adiflask.herokuapp.com/approved_data_scientists/${id}`)
+      .then(res => console.log(res));
     // list of companies that request data
   }
-  render () {
+  handleChange = e => {
+      // make pay 
+  };
+  render() {
     const { classes } = this.props;
     return (
       <Grid container>
@@ -68,61 +75,45 @@ class TableList extends React.Component {
                 tableHeaderColor="primary"
                 tableHead={["Name", "Country", "Shared"]}
                 tableData={[
-                  ["Dakota Rice", "Niger", 
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={this.state.jason}
-                        onChange={this.handleChange}
-                        value="jason"
-                      />
-                    }
-                  />],
-                  ["Minerva Hooper", "Curaçao",  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={this.state.die}
-                        onChange={this.handleChange}
-                        value="jason"
-                      />
-                    }
-                  />],
-                  ["Sage Rodriguez", "Netherlands",  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={this.state.die}
-                        onChange={this.handleChange}
-                        value="jason"
-                      />
-                    }
-                  />],
-                  ["Philip Chaney", "Korea, South",  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={this.state.jason}
-                        onChange={this.handleChange}
-                        value="jason"
-                      />
-                    }
-                  />],
-                  ["Doris Greene", "Malawi",  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={this.state.jason}
-                        onChange={this.handleChange}
-                        value="jason"
-                      />
-                    }
-                  />],
-                  ["Mason Porter", "Chile",  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={this.state.die}
-                        onChange={this.handleChange}
-                        value="jason"
-                      />
-                    }
-                  />]
+                  [
+                    "Marco Polo",
+                    "World",
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked={this.state.marco}
+                          onChange={this.handleChange}
+                          value="true"
+                          name="marco"
+                        />
+                      }
+                    />
+                  ],
+                  [
+                    "HealtCare Lab",
+                    "USA",
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked={this.state.health}
+                          onChange={this.handleChange}
+
+                        />
+                      }
+                    />
+                  ],
+                  [
+                    "Sage Rodriguez",
+                    "Netherlands",
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked="true"
+                          onChange={this.handleChange}
+                        />
+                      }
+                    />
+                  ]
                 ]}
               />
             </CardBody>

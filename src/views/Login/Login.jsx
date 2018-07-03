@@ -48,7 +48,7 @@ class Login extends React.Component {
   }
   componentDidMount() {
     console.log('mounting')
-    const blockchain = new Blockchain()
+    // this.blockchain = new Blockchain()
     const key = `-----BEGIN RSA PRIVATE KEY-----
 MIIEpAIBAAKCAQEAo2THzYQI3yCgyfz3DVcORoW2uToS9xLTcmLk8X6tiQdqzr/X
 CU2QXjvqSzi9qeWB5Eyx8MtviM2Y+1SPpFIbN5qtIjFzwgov2CbA4rcQk9756bdu
@@ -76,7 +76,7 @@ kSXLBByK1ay+4H88aPneLihxqlSBN0vjgjP24UrvPlD8Bmp9crsqeYR4EMHQG0Ou
 ENPe9/pAzbin/e1wQui9KnOmSUQjaqrtcgGoQL2YJCPtQ6LF2gAFicBHPsDyLe6d
 p7mdTGPlnRzZCV0BgPq7epG+3cG9shqcO0zCW8iXCARrgnz8y5Br4g==
 -----END RSA PRIVATE KEY-----`
-                console.log(blockchain.createDataholder("Thomas", "test", key))
+                //console.log(blockchain.createDataholder("Thomas", "test", key))
                 /* console.log(blockchain.getKeyFromDataholder('Thomas')) */
     
 
@@ -98,9 +98,9 @@ p7mdTGPlnRzZCV0BgPq7epG+3cG9shqcO0zCW8iXCARrgnz8y5Br4g==
           password: this.state.password,
         })
         .then(response => {
-          console.log(response.data.private_key);
-          const { private_key } = response.data;
-          //this.blockchain.createDataholder(this.state.email, this.state.password, private_key);
+          const { private_key, user_id } = response.data;
+          localStorage.setItem("userId", user_id);
+          // this.blockchain.createDataholder(this.state.email, this.state.password, private_key);
         });
     }
   }

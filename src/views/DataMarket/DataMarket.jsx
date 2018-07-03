@@ -98,7 +98,7 @@ class MarathonCard extends React.Component {
               size="small"
               onClick={() => this.props.history.push("/marathonModel")}
             >
-              Pay 5 Adidasium
+              Pay 5 Adidasium per result
             </Button>
           </CardActions>
         </Card>
