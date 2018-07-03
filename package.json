@@ -47,6 +47,7 @@
     "raf": "3.4.0",
     "react": "16.4.0",
     "react-chartist": "0.13.1",
+    "react-countdown-clock": "^2.4.0",
     "react-dev-utils": "^5.0.1",
     "react-dom": "16.4.0",
     "react-google-maps": "9.4.5",

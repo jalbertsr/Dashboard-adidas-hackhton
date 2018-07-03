@@ -65,7 +65,7 @@ class HeaderLinks extends React.Component {
         </Manager>
         <Button color={window.innerWidth > 959 ? "transparent" : "white"} justIcon={window.innerWidth > 959} simple={!(window.innerWidth > 959)} aria-label="Person" className={classes.buttonLink}>
           <AccountBalance className={classes.icons} />
-          <span className={classes.notifications}>34</span>
+          <span className={classes.notifications}>3k</span>
           <Hidden mdUp>
             <p className={classes.linkText}>123 Adidasium</p>
           </Hidden>

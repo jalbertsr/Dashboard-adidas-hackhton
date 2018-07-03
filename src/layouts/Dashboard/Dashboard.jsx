@@ -1,7 +1,9 @@
 /* eslint-disable */
 import React from "react";
 import PropTypes from "prop-types";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route, Redirect, withRouter } from "react-router-dom";
+import Grid from "@material-ui/core/Grid";
+import GridItem from "components/Grid/GridItem.jsx";
 // creates a beautiful scrollbar
 import PerfectScrollbar from "perfect-scrollbar";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
@@ -20,10 +22,27 @@ import dashboardStyle from "assets/jss/material-dashboard-react/layouts/dashboar
 import image from "assets/img/sidebar-2.jpg";
 import logo from "assets/img/adidas.jpg";
 
+import ReactCountdownClock from 'react-countdown-clock';
+
+const ico = props => (
+  <div style={{ display: "flex", justifyContent: "center" }}>
+        <ReactCountdownClock
+          seconds={10}
+          color="#000"
+          alpha={0.9}
+          size={300}
+          onComplete={() => props.history.push("/dashboard")}
+        />
+  </div>
+);
+
+const icoWithHitory = withRouter(ico);
+
 const switchRoutes = (
   <Switch>
     <Route path="/queryData" component={QueryData} />
     <Route path="/marathonModel" component={MarathonModel} />
+    <Route path="/ico" component={icoWithHitory} />
     {dashboardRoutes.map((prop, key) => {
       if (prop.redirect)
         return <Redirect from={prop.path} to={prop.to} key={key} />;

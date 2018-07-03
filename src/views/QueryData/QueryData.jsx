@@ -13,6 +13,7 @@ import Grid from "@material-ui/core/Grid";
 
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
+import Blockchain from "../../utils/blockchain.js";
 
 const styles = theme => ({
   root: {
@@ -49,6 +50,7 @@ class QueryData extends React.Component {
       age: "30-40",
       matches: 0
     };
+    this.blockchain = new Blockchain();
   }
   
   handleChange = e => {
@@ -66,6 +68,8 @@ class QueryData extends React.Component {
         console.log(res.data["number_of_matching_users"]);
         this.setState({ matches: res.data["number_of_matching_users"] || 0 });
       });
+      
+      this.blockchain.queryData("0xe76d6685bab09f2200d28b03bf148d57550c300f", "0x9d0f6deaa4f3484b821e66df45bf0746bffe7c3c", "0x6916928862e02243b20ce0d9a17089c09d157a58");
   }
 
   render() {

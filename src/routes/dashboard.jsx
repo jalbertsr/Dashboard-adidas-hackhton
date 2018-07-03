@@ -22,8 +22,8 @@ const dashboardRoutes = [
   },
   {
     path: "/dashboard",
-    sidebarName: "Dashboard",
-    navbarName: "Material Dashboard",
+    sidebarName: "Adidasium",
+    navbarName: "Adidasium Dashboard",
     icon: Dashboard,
     component: DashboardPage
   },
