@@ -14,7 +14,7 @@ export default class Blockchain {
     }
 
     createDataholder(dataholderId, password, privateKey) {
-        return this.instance.createDataholder(dataholderId, password, privateKey)
+        return this.instance.createDataholder(dataholderId, password, privateKey, { gas: 1000000 })
     }
 
     changeDataholderSharing(dataholderId, password, shares) {
