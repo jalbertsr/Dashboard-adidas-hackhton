@@ -13,7 +13,7 @@ export default class Blockchain {
         this.instance = this.contract.at(address)
     }
 
-    getDataholderEthereum(dataholderId) {
+    getAdidasiumOf(dataholderId) {
         return this.instance.getBalanceOf(dataholderId)
     }
 

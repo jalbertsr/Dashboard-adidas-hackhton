@@ -48,7 +48,7 @@ class Login extends React.Component {
   }
   componentDidMount() {
     console.log('mounting')
-    // this.blockchain = new Blockchain()
+    this.blockchain = new Blockchain()
     const key = `-----BEGIN RSA PRIVATE KEY-----
 MIIEpAIBAAKCAQEAo2THzYQI3yCgyfz3DVcORoW2uToS9xLTcmLk8X6tiQdqzr/X
 CU2QXjvqSzi9qeWB5Eyx8MtviM2Y+1SPpFIbN5qtIjFzwgov2CbA4rcQk9756bdu
@@ -100,7 +100,9 @@ p7mdTGPlnRzZCV0BgPq7epG+3cG9shqcO0zCW8iXCARrgnz8y5Br4g==
         .then(response => {
           const { private_key, user_id } = response.data;
           localStorage.setItem("userId", user_id);
-          // this.blockchain.createDataholder(this.state.email, this.state.password, private_key);
+          this.blockchain.createDataholder(this.state.email, this.state.password, private_key);
+          const balance = this.blockchain.getAdidasiumOf("0xa6ba6a2aed90939f931c1f33be2fbb3ad250a833");
+          console.log(balance)
         });
     }
   }

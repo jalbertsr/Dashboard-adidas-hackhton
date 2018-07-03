@@ -79,6 +79,8 @@ class MarathonModel extends React.Component {
     const result = Math.floor(8 - (((f * Math.max(1, 300 - r))/2100)*8));
     const marathonTime = getMarathonTime(result);
     this.setState({ marathonTime })
+    const hash = "0xa6ba6a2aed90939f931c1f33be2fbb3ad250a833";
+    
   };
 
   render() {
