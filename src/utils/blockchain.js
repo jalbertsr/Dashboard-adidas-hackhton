@@ -13,8 +13,17 @@ export default class Blockchain {
         this.instance = this.contract.at(address)
     }
 
+    getDataholderEthereum(dataholderId) {
+        return this.instance.getBalanceOf(dataholderId)
+    }
+
     createDataholder(dataholderId, password, privateKey) {
         return this.instance.createDataholder(dataholderId, password, privateKey, { gas: 1000000 })
+    }
+
+    addDataScientistToDataholder(dataScientistId, dataholderId) {
+        // gives a data scientist permissions to query keys from a dataholder
+        return this.instance.createDataScientistToDataholder(dataScientistId, dataholderId)
     }
 
     changeDataholderSharing(dataholderId, password, shares) {
@@ -23,5 +32,15 @@ export default class Blockchain {
 
     getKeyFromDataholder(dataholderId) {
         return this.instance.getKeyFromDataholder(dataholderId)
+    }
+
+    getKey(dataholderId, dataScientistId) {
+        // gets Key if dataholder contains dataScientist
+        // else => Forbidden
+        return this.instance.getKey(dataholderId, dataScientistId)
+    }
+
+    queryData(dataholderId, dataScientistId, buyerId) {
+        return this.instance.queryData(dataholderId, dataScientistId, buyerId)
     }
 }

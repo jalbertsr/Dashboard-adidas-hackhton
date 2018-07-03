@@ -1,4 +1,5 @@
 export const address = '0xdd8e48756ab62215b21ff118f70ebe5f91c053f5'
+export const adidasiumAddress = '0xbce7f803a5368050cc89976558b79c9980d947df'
 export const abi = [
 	{
 		"constant": false,
