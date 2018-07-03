@@ -1,23 +1,5 @@
-export const address ="0xf72180dd2be95ff1905f68c2d1f081f5943768be"
+export const address = "0x11f2016194ace9de17386eb9422249ecb79647ff"
 export const abi =[
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_dataScientistId",
-				"type": "string"
-			},
-			{
-				"name": "_dataholderId",
-				"type": "string"
-			}
-		],
-		"name": "addDataScientistToDataholder",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
 	{
 		"constant": false,
 		"inputs": [
@@ -43,6 +25,44 @@ export const abi =[
 		],
 		"payable": false,
 		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "user",
+				"type": "string"
+			}
+		],
+		"name": "getBalanceOf",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_dataholderId",
+				"type": "string"
+			}
+		],
+		"name": "getKeyFromDataholder",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -77,16 +97,17 @@ export const abi =[
 			{
 				"name": "_dataScientistId",
 				"type": "string"
-			},
+			}
+		],
+		"name": "getKey",
+		"outputs": [
 			{
-				"name": "_buyerId",
+				"name": "",
 				"type": "string"
 			}
 		],
-		"name": "queryData",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
+		"payable": true,
+		"stateMutability": "payable",
 		"type": "function"
 	},
 	{
@@ -109,36 +130,6 @@ export const abi =[
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"name": "coinbase",
-				"type": "string"
-			}
-		],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "user",
-				"type": "string"
-			}
-		],
-		"name": "getBalanceOf",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -165,7 +156,25 @@ export const abi =[
 		"type": "function"
 	},
 	{
-		"constant": true,
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_dataScientistId",
+				"type": "string"
+			},
+			{
+				"name": "_dataholderId",
+				"type": "string"
+			}
+		],
+		"name": "addDataScientistToDataholder",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
 		"inputs": [
 			{
 				"name": "_dataholderId",
@@ -174,36 +183,27 @@ export const abi =[
 			{
 				"name": "_dataScientistId",
 				"type": "string"
-			}
-		],
-		"name": "getKey",
-		"outputs": [
+			},
 			{
-				"name": "",
+				"name": "_buyerId",
 				"type": "string"
 			}
 		],
+		"name": "queryData",
+		"outputs": [],
 		"payable": false,
-		"stateMutability": "view",
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
-		"constant": true,
 		"inputs": [
 			{
-				"name": "_dataholderId",
-				"type": "string"
-			}
-		],
-		"name": "getKeyFromDataholder",
-		"outputs": [
-			{
-				"name": "",
+				"name": "coinbase",
 				"type": "string"
 			}
 		],
 		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
+		"stateMutability": "nonpayable",
+		"type": "constructor"
 	}
-] ; 
+]
