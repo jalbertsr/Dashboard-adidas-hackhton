@@ -61,13 +61,44 @@ class SimpleCard extends React.Component {
               Data from our sport social network
             </Typography>
             <Typography component="p">
-              well meaning and kindly.<br />
-              {'"a benevolent smile"'}
+              Discover our data and all the endless posibilities.
             </Typography>
           </CardContent>
           <CardActions>
             <Button size="small" onClick={() => this.props.history.push("/queryData")}>
-              Go
+              Try
+            </Button>
+          </CardActions>
+        </Card>
+      </div>
+    );
+  }
+}
+
+class MarathonCard extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    const { classes } = this.props;
+    return (
+      <div>
+        <Card className={classes.card}>
+          <CardContent>
+            <Typography variant="headline" component="h2">
+              Marathon Model
+            </Typography>
+            <Typography className={classes.pos} color="textSecondary">
+              Data from our sport social network
+            </Typography>
+            <Typography component="p">Create the perfect tranning to finish a marathon.</Typography>
+          </CardContent>
+          <CardActions>
+            <Button
+              size="small"
+              onClick={() => this.props.history.push("/marathonModel")}
+            >
+              Pay 5 Adidasium
             </Button>
           </CardActions>
         </Card>
@@ -84,6 +115,7 @@ function UnstyledSimpleCard(props) {
     </div>;
 }
 
+const SimpleMarathonCard = withStyles(styles)(withRouter(MarathonCard));
 const SimpleStayledCard = withStyles(styles)(withRouter(SimpleCard));
 const SimpleUnstayledCard = withStyles(styles)(UnstyledSimpleCard);
 
@@ -139,28 +171,28 @@ function DataMarket(props) {
             <SimpleStayledCard />
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
-            <SimpleStayledCard />
+            <SimpleMarathonCard />
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
-            <SimpleUnstayledCard/>
+            <SimpleUnstayledCard />
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
-            <SimpleUnstayledCard/>
+            <SimpleUnstayledCard />
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
-            <SimpleUnstayledCard/>
+            <SimpleUnstayledCard />
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
-            <SimpleUnstayledCard/>
+            <SimpleUnstayledCard />
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
-            <SimpleUnstayledCard/>
+            <SimpleUnstayledCard />
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
-            <SimpleUnstayledCard/>
+            <SimpleUnstayledCard />
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
-            <SimpleUnstayledCard/>
+            <SimpleUnstayledCard />
           </GridItem>
         </Grid>
       </CardBody>

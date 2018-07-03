@@ -8,6 +8,8 @@ import Table from "components/Table/Table.jsx";
 import Card from "components/Card/Card.jsx";
 import CardHeader from "components/Card/CardHeader.jsx";
 import CardBody from "components/Card/CardBody.jsx";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
 
 const styles = {
   cardCategoryWhite: {
@@ -42,7 +44,9 @@ const styles = {
 class TableList extends React.Component {
   constructor (props){
     super(props)
-    this.state = {}
+    this.state = {
+      jason: true
+    }
   }
   componentDidMount () {
     // list of companies that request data
@@ -64,12 +68,61 @@ class TableList extends React.Component {
                 tableHeaderColor="primary"
                 tableHead={["Name", "Country", "Shared"]}
                 tableData={[
-                  ["Dakota Rice", "Niger", "Yes - ✅"],
-                  ["Minerva Hooper", "Curaçao", "No - ❌"],
-                  ["Sage Rodriguez", "Netherlands", "Yes - ✅"],
-                  ["Philip Chaney", "Korea, South", "Yes - ✅"],
-                  ["Doris Greene", "Malawi", "No - ❌"],
-                  ["Mason Porter", "Chile", "Yes - ✅"]
+                  ["Dakota Rice", "Niger", 
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={this.state.jason}
+                        onChange={this.handleChange}
+                        value="jason"
+                      />
+                    }
+                  />],
+                  ["Minerva Hooper", "Curaçao",  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={this.state.die}
+                        onChange={this.handleChange}
+                        value="jason"
+                      />
+                    }
+                  />],
+                  ["Sage Rodriguez", "Netherlands",  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={this.state.die}
+                        onChange={this.handleChange}
+                        value="jason"
+                      />
+                    }
+                  />],
+                  ["Philip Chaney", "Korea, South",  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={this.state.jason}
+                        onChange={this.handleChange}
+                        value="jason"
+                      />
+                    }
+                  />],
+                  ["Doris Greene", "Malawi",  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={this.state.jason}
+                        onChange={this.handleChange}
+                        value="jason"
+                      />
+                    }
+                  />],
+                  ["Mason Porter", "Chile",  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={this.state.die}
+                        onChange={this.handleChange}
+                        value="jason"
+                      />
+                    }
+                  />]
                 ]}
               />
             </CardBody>

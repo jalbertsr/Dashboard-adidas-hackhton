@@ -16,7 +16,7 @@ import Input from "@material-ui/core/Input";
 import FormControl from "@material-ui/core/FormControl";
 import TextField from "@material-ui/core/TextField";
 
-import Web3 from 'web3';
+import Blockchain from '../../utils/blockchain.js'
 
 const styles = {
   cardCategoryWhite: {
@@ -47,7 +47,15 @@ class Login extends React.Component {
     };
   }
   componentDidMount() {
+    console.log('mounting')
+    //this.blockchain = new Blockchain()
+    /* blockchain.createDataholder("Thomas", "test", "private") */
+    //console.log(this.blockchain.getKeyFromDataholder('Thomas'))
     
+
+    /* const web3 = new Web3(new Web3.providers.HttpProvider("http://54.246.178.196:8545"));
+     * var coinbase = web3.eth.coinbase; */
+    /* console.log(coinbase) */
   }
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -64,6 +72,8 @@ class Login extends React.Component {
         })
         .then(response => {
           console.log(response.data.private_key);
+          const { private_key } = response.data;
+          //this.blockchain.createDataholder(this.state.email, this.state.password, private_key);
         });
     }
   }

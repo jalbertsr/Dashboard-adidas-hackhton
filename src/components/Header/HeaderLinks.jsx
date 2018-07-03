@@ -10,6 +10,7 @@ import Paper from "@material-ui/core/Paper";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import Hidden from "@material-ui/core/Hidden";
 // @material-ui/icons
+import AccountBalance from "@material-ui/icons/AccountBalance";
 import Person from "@material-ui/icons/Person";
 import Notifications from "@material-ui/icons/Notifications";
 import Button from "components/CustomButtons/Button.jsx";
@@ -30,20 +31,10 @@ class HeaderLinks extends React.Component {
   render() {
     const { classes } = this.props;
     const { open } = this.state;
-    return (
-      <div>
+    return <div>
         <Manager className={classes.manager}>
           <Target>
-            <Button
-              color={window.innerWidth > 959 ? "transparent" : "white"}
-              justIcon={window.innerWidth > 959}
-              simple={!(window.innerWidth > 959)}
-              aria-label="Notifications"
-              aria-owns={open ? "menu-list" : null}
-              aria-haspopup="true"
-              onClick={this.handleClick}
-              className={classes.buttonLink}
-            >
+            <Button color={window.innerWidth > 959 ? "transparent" : "white"} justIcon={window.innerWidth > 959} simple={!(window.innerWidth > 959)} aria-label="Notifications" aria-owns={open ? "menu-list" : null} aria-haspopup="true" onClick={this.handleClick} className={classes.buttonLink}>
               <Notifications className={classes.icons} />
               <span className={classes.notifications}>2</span>
               <Hidden mdUp>
@@ -53,33 +44,17 @@ class HeaderLinks extends React.Component {
               </Hidden>
             </Button>
           </Target>
-          <Popper
-            placement="bottom-start"
-            eventsEnabled={open}
-            className={
-              classNames({ [classes.popperClose]: !open }) +
-              " " +
-              classes.pooperResponsive
-            }
-          >
+          <Popper placement="bottom-start" eventsEnabled={open} className={classNames(
+                { [classes.popperClose]: !open }
+              ) + " " + classes.pooperResponsive}>
             <ClickAwayListener onClickAway={this.handleClose}>
-              <Grow
-                in={open}
-                id="menu-list"
-                style={{ transformOrigin: "0 0 0" }}
-              >
+              <Grow in={open} id="menu-list" style={{ transformOrigin: "0 0 0" }}>
                 <Paper className={classes.dropdown}>
                   <MenuList role="menu">
-                    <MenuItem
-                      onClick={this.handleClose}
-                      className={classes.dropdownItem}
-                    >
+                    <MenuItem onClick={this.handleClose} className={classes.dropdownItem}>
                       ONG XXX wants your data.
                     </MenuItem>
-                    <MenuItem
-                      onClick={this.handleClose}
-                      className={classes.dropdownItem}
-                    >
+                    <MenuItem onClick={this.handleClose} className={classes.dropdownItem}>
                       Health company XXX wants your data.
                     </MenuItem>
                   </MenuList>
@@ -88,20 +63,20 @@ class HeaderLinks extends React.Component {
             </ClickAwayListener>
           </Popper>
         </Manager>
-        <Button
-          color={window.innerWidth > 959 ? "transparent" : "white"}
-          justIcon={window.innerWidth > 959}
-          simple={!(window.innerWidth > 959)}
-          aria-label="Person"
-          className={classes.buttonLink}
-        >
+        <Button color={window.innerWidth > 959 ? "transparent" : "white"} justIcon={window.innerWidth > 959} simple={!(window.innerWidth > 959)} aria-label="Person" className={classes.buttonLink}>
+          <AccountBalance className={classes.icons} />
+          <span className={classes.notifications}>34</span>
+          <Hidden mdUp>
+            <p className={classes.linkText}>123 Adidasium</p>
+          </Hidden>
+        </Button>
+        <Button color={window.innerWidth > 959 ? "transparent" : "white"} justIcon={window.innerWidth > 959} simple={!(window.innerWidth > 959)} aria-label="Person" className={classes.buttonLink}>
           <Person className={classes.icons} />
           <Hidden mdUp>
             <p className={classes.linkText}>Profile</p>
           </Hidden>
         </Button>
-      </div>
-    );
+      </div>;
   }
 }
 

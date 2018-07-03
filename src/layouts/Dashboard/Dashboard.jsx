@@ -13,6 +13,7 @@ import Sidebar from "components/Sidebar/Sidebar.jsx";
 import QueryData from "../../views/QueryData/QueryData.jsx"
 
 import dashboardRoutes from "routes/dashboard.jsx";
+import MarathonModel from "../../views/MarathonModel/MarathonModel";
 
 import dashboardStyle from "assets/jss/material-dashboard-react/layouts/dashboardStyle.jsx";
 
@@ -22,6 +23,7 @@ import logo from "assets/img/adidas.jpg";
 const switchRoutes = (
   <Switch>
     <Route path="/queryData" component={QueryData} />
+    <Route path="/marathonModel" component={MarathonModel} />
     {dashboardRoutes.map((prop, key) => {
       if (prop.redirect)
         return <Redirect from={prop.path} to={prop.to} key={key} />;
