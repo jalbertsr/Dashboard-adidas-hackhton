@@ -6,21 +6,15 @@ import Grid from "@material-ui/core/Grid";
 import InputLabel from "@material-ui/core/InputLabel";
 // core components
 import GridItem from "components/Grid/GridItem.jsx";
-import CustomInput from "components/CustomInput/CustomInput.jsx";
 import Button from "components/CustomButtons/Button.jsx";
 import Card from "components/Card/Card.jsx";
 import CardHeader from "components/Card/CardHeader.jsx";
-import CardAvatar from "components/Card/CardAvatar.jsx";
 import CardBody from "components/Card/CardBody.jsx";
 import CardFooter from "components/Card/CardFooter.jsx";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Switch from "@material-ui/core/Switch";
 
 import Input from "@material-ui/core/Input";
-import InputAdornment from "@material-ui/core/InputAdornment";
 import FormControl from "@material-ui/core/FormControl";
 import TextField from "@material-ui/core/TextField";
-import AccountCircle from "@material-ui/icons/AccountCircle";
 
 import Blockchain from '../../utils/blockchain.js'
 
@@ -54,7 +48,7 @@ class Login extends React.Component {
   }
   componentDidMount() {
     console.log('mounting')
-    const blockchain = new Blockchain()
+    // this.blockchain = new Blockchain()
     const key = `-----BEGIN RSA PRIVATE KEY-----
 MIIEpAIBAAKCAQEAo2THzYQI3yCgyfz3DVcORoW2uToS9xLTcmLk8X6tiQdqzr/X
 CU2QXjvqSzi9qeWB5Eyx8MtviM2Y+1SPpFIbN5qtIjFzwgov2CbA4rcQk9756bdu
@@ -82,7 +76,7 @@ kSXLBByK1ay+4H88aPneLihxqlSBN0vjgjP24UrvPlD8Bmp9crsqeYR4EMHQG0Ou
 ENPe9/pAzbin/e1wQui9KnOmSUQjaqrtcgGoQL2YJCPtQ6LF2gAFicBHPsDyLe6d
 p7mdTGPlnRzZCV0BgPq7epG+3cG9shqcO0zCW8iXCARrgnz8y5Br4g==
 -----END RSA PRIVATE KEY-----`
-                console.log(blockchain.createDataholder("Thomas", "test", key))
+                //console.log(blockchain.createDataholder("Thomas", "test", key))
                 /* console.log(blockchain.getKeyFromDataholder('Thomas')) */
     
 
@@ -102,10 +96,11 @@ p7mdTGPlnRzZCV0BgPq7epG+3cG9shqcO0zCW8iXCARrgnz8y5Br4g==
         .post("https://adiflask.herokuapp.com/create_user", {
           email: this.state.email,
           password: this.state.password,
-          public_key: "1231231313_public_key"
         })
         .then(response => {
-          console.log(response);
+          const { private_key, user_id } = response.data;
+          localStorage.setItem("userId", user_id);
+          // this.blockchain.createDataholder(this.state.email, this.state.password, private_key);
         });
     }
   }

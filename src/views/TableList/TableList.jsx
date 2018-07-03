@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import Grid from "@material-ui/core/Grid";
@@ -8,6 +9,8 @@ import Table from "components/Table/Table.jsx";
 import Card from "components/Card/Card.jsx";
 import CardHeader from "components/Card/CardHeader.jsx";
 import CardBody from "components/Card/CardBody.jsx";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
 
 const styles = {
   cardCategoryWhite: {
@@ -40,14 +43,22 @@ const styles = {
 };
 
 class TableList extends React.Component {
-  constructor (props){
-    super(props)
-    this.state = {}
+  constructor(props) {
+    super(props);
+    this.state = {
+    };
   }
-  componentDidMount () {
+  componentDidMount() {
+    const id = localStorage.getItem("userId");
+    axios
+      .get(`https://adiflask.herokuapp.com/approved_data_scientists/${id}`)
+      .then(res => console.log(res));
     // list of companies that request data
   }
-  render () {
+  handleChange = e => {
+      // make pay 
+  };
+  render() {
     const { classes } = this.props;
     return (
       <Grid container>
@@ -64,12 +75,45 @@ class TableList extends React.Component {
                 tableHeaderColor="primary"
                 tableHead={["Name", "Country", "Shared"]}
                 tableData={[
-                  ["Dakota Rice", "Niger", "Yes - ✅"],
-                  ["Minerva Hooper", "Curaçao", "No - ❌"],
-                  ["Sage Rodriguez", "Netherlands", "Yes - ✅"],
-                  ["Philip Chaney", "Korea, South", "Yes - ✅"],
-                  ["Doris Greene", "Malawi", "No - ❌"],
-                  ["Mason Porter", "Chile", "Yes - ✅"]
+                  [
+                    "Marco Polo",
+                    "World",
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked={this.state.marco}
+                          onChange={this.handleChange}
+                          value="true"
+                          name="marco"
+                        />
+                      }
+                    />
+                  ],
+                  [
+                    "HealtCare Lab",
+                    "USA",
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked={this.state.health}
+                          onChange={this.handleChange}
+
+                        />
+                      }
+                    />
+                  ],
+                  [
+                    "Sage Rodriguez",
+                    "Netherlands",
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked="true"
+                          onChange={this.handleChange}
+                        />
+                      }
+                    />
+                  ]
                 ]}
               />
             </CardBody>

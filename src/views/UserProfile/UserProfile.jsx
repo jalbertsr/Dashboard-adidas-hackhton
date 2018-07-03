@@ -14,8 +14,9 @@ import CardBody from "components/Card/CardBody.jsx";
 import CardFooter from "components/Card/CardFooter.jsx";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
-
-// import DropZone from '../../components/DropZone/DropZone';
+import AttachMoney from "@material-ui/icons/AttachMoney";
+import CardIcon from "components/Card/CardIcon.jsx";
+import DateRange from "@material-ui/icons/DateRange";
 
 import avatar from "assets/img/faces/marc.jpg";
 
@@ -98,19 +99,32 @@ class UserProfile extends React.Component {
           <GridItem xs={12} sm={12} md={6}>
             <Card>
               <CardHeader color="primary">
-                <h4 className={classes.cardTitleWhite}>Upload your data</h4>
+                <h4 className={classes.cardTitleWhite}>Your Balance</h4>
                 <p className={classes.cardCategoryWhite}>
-                  to the blockchain
+                  Look your adidasium grow
                 </p>
               </CardHeader>
               <CardBody>
                 <Grid container>
-                  Uploaderrrrr
+                  <GridItem xs={12} sm={6} md={6}>
+                    <Card>
+                      <CardHeader color="success" stats icon>
+                        <CardIcon color="success">
+                          <AttachMoney />
+                        </CardIcon>
+                        <p className={classes.cardCategory}>Balance</p>
+                        <h3 className={classes.cardTitle}>34245</h3>
+                      </CardHeader>
+                      <CardFooter stats>
+                        <div className={classes.stats}>
+                          <DateRange />
+                          Last 24 Hours
+                        </div>
+                      </CardFooter>
+                    </Card>
+                  </GridItem>
                 </Grid>
               </CardBody>
-              <CardFooter>
-                <Button color="primary">Upload Data</Button>
-              </CardFooter>
             </Card>
           </GridItem>
         </Grid>
